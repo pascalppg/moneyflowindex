@@ -8,6 +8,7 @@ WORKDIR /app
 COPY . .
 
 #instal dependency : requirements.txt
+#download and install packages from scratch without saving them to your local storage
 RUN pip install --no-cache-dir -r requirements.txt
 
 #run the scripts
