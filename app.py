@@ -34,8 +34,9 @@ df.loc[0, ['Positive_MF', 'Negative_MF']] = np.nan
 def calculate_mfi(dataframe, m):
     df_temp = dataframe.copy()
 
-    df_temp[f'PMF_{m}'] = df_temp['Positive_MF'].rolling(window=m).sum()
-    df_temp[f'NMF_{m}'] = df_temp['Negative_MF'].rolling(window=m).sum()
+    # find time-series analytics data with rolling windows (running sum)
+    df_temp[f'PMF_{m}'] = df_temp['Positive_MF'].rolling(window=m).sum() #Positive Money Flow Sum (calculates a continuously)
+    df_temp[f'NMF_{m}'] = df_temp['Negative_MF'].rolling(window=m).sum() #Negative Money Flow Sum (calculates a continuously)
 
     df_temp[f'MFR_{m}'] = df_temp[f'PMF_{m}'] / df_temp[f'NMF_{m}'].replace(0, np.nan)
 
