@@ -1,4 +1,5 @@
 #base image
+#-slim tag means it is a lightweight, stripped-down version
 FROM python:3.12.7-slim
 
 #set up working directory
